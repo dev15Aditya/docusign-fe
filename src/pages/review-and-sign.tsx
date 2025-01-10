@@ -27,7 +27,11 @@ const ReviewSignDoc = () => {
       try{
         setLoading(true);
       const res = await axios.get(
-        `${baseUrl}/document/status/${document_id}/${unique_hash}`
+        `${baseUrl}/document/status/${document_id}/${unique_hash}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
       console.log('Response--->', res.data);
       setCurrentStatus(res.data);
@@ -47,7 +51,11 @@ const ReviewSignDoc = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${baseUrl}/document/sign/${document_id}/${unique_hash}`
+        `${baseUrl}/document/sign/${document_id}/${unique_hash}`, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
       console.log('Sign res: ', res);
       window.alert('Signed document successfully');
@@ -88,7 +96,11 @@ const ReviewSignDoc = () => {
 
       const res = await axios.post(
         `${baseUrl}/document/user/government/${document_id}/${unique_hash}`,
-        body
+        body, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
 
       if (res.status === 200) {

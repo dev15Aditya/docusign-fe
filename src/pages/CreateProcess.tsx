@@ -21,7 +21,11 @@ const CreateProcess = () => {
       setLoading(true);
       const body = await processData(data);
       console.log('body: ', body);
-      const res = await axios.post(`${baseUrl}/document/create`, body);
+      const res = await axios.post(baseUrl + '/document/create', body, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
       if (res.status === 200) {
         window.alert('Process created successfully, check email');
