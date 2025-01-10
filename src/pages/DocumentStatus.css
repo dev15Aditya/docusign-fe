@@ -1,0 +1,103 @@
+.document-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .document-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Current User Section */
+  .current-user-section {
+    margin-bottom: 30px;
+  }
+  
+  .uploaded-documents {
+    margin-top: 10px;
+  }
+  
+  .document-previews {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .document-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    width: 150px;
+    text-align: center;
+  }
+  
+  .document-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .document-info {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Participants Section */
+  .participants-section {
+    margin-top: 20px;
+  }
+  
+  .participants-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+  }
+  
+  .participants-table th, .participants-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .participants-table th {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .participants-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .participants-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .file-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .file-link:hover {
+    text-decoration: underline;
+  }
