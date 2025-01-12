@@ -91,7 +91,7 @@ const ReviewSignDoc = () => {
       const body = {
         data: fileBase64,
         description: data.description,
-        file_extension: ext,
+        file_extension: `.${ext}`,
       };
 
       const res = await axios.post(
