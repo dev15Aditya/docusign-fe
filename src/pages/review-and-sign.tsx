@@ -131,7 +131,7 @@ const ReviewSignDoc = () => {
         documentId={''}
       />
 
-      {
+      { currentStatus?.status !== "COMPLETED" &&
         <div>
           {/* Upload */}
           <form onSubmit={handleSubmit(onSubmit)}>
