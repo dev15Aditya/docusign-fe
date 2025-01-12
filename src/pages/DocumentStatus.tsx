@@ -85,7 +85,7 @@ const DocumentStatus: React.FC<Props> = ({ participants, currentUser }) => {
                 <td>{participant.status.hasUploaded ? 'Yes' : 'No'}</td>
                 <td>{participant.status.hasAccepted ? 'Yes' : 'No'}</td>
                 <td>
-                  {participant.status.hasUploaded ? (
+                  {participant.status.hasUploaded && participant.uploaded_documents?.length > 0 ? (
                     <a
                       href={participant.uploaded_documents[0].file_uri}
                       target="_blank"
