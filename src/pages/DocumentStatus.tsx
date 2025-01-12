@@ -19,6 +19,7 @@ type Participant = {
   email: string;
   role: string;
   status: Status;
+  uploaded_documents: UploadedDocument[]
 };
 
 type Props = {
@@ -34,7 +35,7 @@ type Props = {
   };
 };
 
-const DocumentStatus: React.FC<Props> = ({ participants, files, currentUser }) => {
+const DocumentStatus: React.FC<Props> = ({ participants, currentUser }) => {
   return (
     <div className="document-container">
       <h1 className="document-title">Document Details</h1>
@@ -84,9 +85,9 @@ const DocumentStatus: React.FC<Props> = ({ participants, files, currentUser }) =
                 <td>{participant.status.hasUploaded ? 'Yes' : 'No'}</td>
                 <td>{participant.status.hasAccepted ? 'Yes' : 'No'}</td>
                 <td>
-                  {files.primary && participant.status.hasUploaded ? (
+                  {participant.status.hasUploaded ? (
                     <a
-                      href={files.primary}
+                      href={participant.uploaded_documents[0].file_uri}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="file-link"
