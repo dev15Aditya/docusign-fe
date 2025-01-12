@@ -49,13 +49,19 @@ const DocumentStatus: React.FC<Props> = ({ participants, currentUser }) => {
           <div className="document-previews">
             {(currentUser?.uploaded_documents || []).map((doc, index) => (
               <div key={index} className="document-card">
-                <a href={doc.file_uri} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={doc.file_uri}
-                    alt={doc.type}
-                    className="document-thumbnail"
-                  />
-                </a>
+                {doc.file_uri.endsWith('.pdf') ? (
+                  <a href={doc.file_uri} target="_blank" rel="noopener noreferrer">
+                    <p className="document-thumbnail">PDF Document</p>
+                  </a>
+                ) : (
+                  <a href={doc.file_uri} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={doc.file_uri}
+                      alt={doc.type}
+                      className="document-thumbnail"
+                    />
+                  </a>
+                )}
                 <p className="document-info">Type: {doc.type}</p>
                 <p className="document-info">Uploaded At: {doc.upload_timestamp}</p>
               </div>
