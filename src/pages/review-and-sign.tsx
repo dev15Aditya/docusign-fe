@@ -104,7 +104,7 @@ const ReviewSignDoc = () => {
       );
 
       if (res.status === 200) {
-        window.alert('File uploaded successfully! Go ahead and sign.');
+        window.alert('File uploaded successfully!');
       } else {
         window.alert('Something went wrong!');
       }
@@ -149,7 +149,7 @@ const ReviewSignDoc = () => {
           </form>
 
           {/* sign */}
-          <div
+         <div
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -157,8 +157,8 @@ const ReviewSignDoc = () => {
               justifyContent: 'center',
             }}
           >
-            <h2>Sign Document</h2>
-            <button onClick={handleDocuSign}>Sign</button>
+            <h2>Approve Document</h2>
+            <button onClick={handleDocuSign}>Approve</button>
           </div>
         </div>
       }

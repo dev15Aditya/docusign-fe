@@ -35,7 +35,8 @@ type Props = {
   };
 };
 
-const DocumentStatus: React.FC<Props> = ({ participants, currentUser }) => {
+const DocumentStatus: React.FC<Props> = ({ participants, currentUser, files }) => {
+
   return (
     <div className="document-container">
       <h1 className="document-title">Document Details</h1>
@@ -45,27 +46,27 @@ const DocumentStatus: React.FC<Props> = ({ participants, currentUser }) => {
         <p>Role: {currentUser.role}</p>
         <p>Status: {currentUser.status?.hasUploaded ? 'Uploaded' : 'Not Uploaded'}</p>
         <div className="uploaded-documents">
-          <h3 className="section-subtitle">Uploaded Documents:</h3>
+          <h3 className="section-subtitle">Contract Document:</h3>
           <div className="document-previews">
-            {(currentUser?.uploaded_documents || []).map((doc, index) => (
-              <div key={index} className="document-card">
-                {doc.file_uri.endsWith('.pdf') ? (
-                  <a href={doc.file_uri} target="_blank" rel="noopener noreferrer">
-                    <p className="document-thumbnail">PDF Document</p>
-                  </a>
-                ) : (
-                  <a href={doc.file_uri} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={doc.file_uri}
-                      alt={doc.type}
-                      className="document-thumbnail"
-                    />
-                  </a>
-                )}
-                <p className="document-info">Type: {doc.type}</p>
-                <p className="document-info">Uploaded At: {doc.upload_timestamp}</p>
-              </div>
-            ))}
+            {
+              files.primary && (
+                <div className="document-card">
+                  {files.primary.endsWith('.pdf') ? (
+                    <a href={files.primary} target="_blank" rel="noopener noreferrer">
+                      <p className="document-thumbnail">PDF Document</p>
+                    </a>
+                  ) : (
+                    <a href={files.primary} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={files.primary}
+                        alt="Primary Document"
+                        className="document-thumbnail"
+                      />
+                    </a>
+                  )}
+                </div>
+              )
+            }
           </div>
         </div>
       </div>

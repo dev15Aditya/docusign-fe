@@ -5,6 +5,7 @@ import axios from 'axios';
 import { baseUrl } from '../service/url';
 import { useState } from 'react';
 import FullScreenSpinner from './FullScreenSpinner';
+import { useNavigate } from 'react-router-dom';
 
 const CreateProcess = () => {
   const {
@@ -15,6 +16,7 @@ const CreateProcess = () => {
   } = useForm();
   const { fields, append } = useFieldArray({ control, name: 'optionalEmails' });
   const [loading, setLoading] = useState(false);
+
 
   const onSubmit = async (data: Record<string, any>) => {
     try {
@@ -71,17 +73,12 @@ const CreateProcess = () => {
           {errors.targetEmail && <span>This field is required</span>}
         </div>
         <div>
-          <label>File 1</label>
+          <label>Add Contract</label>
           <input type="file" {...register('file1', { required: true })} />
           {errors.file1 && <span>This field is required</span>}
         </div>
         <div>
-          <label>File 2</label>
-          <input type="file" {...register('file2', { required: true })} />
-          {errors.file2 && <span>This field is required</span>}
-        </div>
-        <div>
-          <label>Concept</label>
+          <label>Title</label>
           <textarea {...register('concept', { required: true })} />
           {errors.concept && <span>This field is required</span>}
         </div>
@@ -91,7 +88,7 @@ const CreateProcess = () => {
           {errors.description && <span>This field is required</span>}
         </div>
         <div className="optional-emails">
-          <label>Optional Emails</label>
+          <label>Optional Participants</label>
           {fields.map((field, index) => (
             <div key={field.id}>
               <input
@@ -99,14 +96,19 @@ const CreateProcess = () => {
                 {...register(`optionalEmails.${index}.email`)}
                 placeholder={`Optional Email ${index + 1}`}
               />
+              <input
+                type="text"
+                {...register(`optionalEmails.${index}.name`)}
+                placeholder={`Optional Name ${index + 1}`}
+                />
             </div>
           ))}
           <button
             className="add-email-btn"
-            onClick={() => append({ email: '' })}
+            onClick={() => append({ email: '', name: '' })}
             type='button'
           >
-            Add Email
+            Add Participant
           </button>
         </div>
         <button type="submit">Submit</button>
