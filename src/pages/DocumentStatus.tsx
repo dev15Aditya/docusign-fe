@@ -35,10 +35,16 @@ type Props = {
   };
 };
 
-const DocumentStatus: React.FC<Props> = ({ participants, currentUser, files }) => {
+const DocumentStatus: React.FC<Props> = ({ participants, currentUser, files, status }) => {
 
   return (
     <div className="document-container">
+            {status === "COMPLETED" && 
+        <h1 className='document-title' style={{
+          // textAlign: 'center',
+          color: 'green'
+        }}>Contract Signing complete</h1>
+      }
       <h1 className="document-title">Document Details</h1>
       <div className="current-user-section">
         <h2 className="section-title">Current User</h2>

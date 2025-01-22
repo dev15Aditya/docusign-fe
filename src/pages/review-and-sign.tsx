@@ -59,6 +59,7 @@ const ReviewSignDoc = () => {
       );
       console.log('Sign res: ', res);
       window.alert('Signed document successfully');
+      window.location.reload();
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 400) {
         window.alert(error.response.data.message);
